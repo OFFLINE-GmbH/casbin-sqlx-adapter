@@ -27,6 +27,7 @@ type Adapter struct {
 	tableName string
 }
 
+// AdapterOptions contains all possible configuration options.
 type AdapterOptions struct {
 	driverName string
 	dataSourceName string
