@@ -10,12 +10,12 @@ Based on [sqlx](https://github.com/jmoiron/sqlx), and tested in [MySQL](https://
 ## Usage example
 
 ```go
-opts := AdapterOptions{
-    driverName: "mysql",
-    dataSourceName: "root:1234@tcp(127.0.0.1:3306)/yourdb",
-    tableName: "casbin_rule",
+opts := &AdapterOptions{
+    DriverName: "mysql",
+    DataSourceName: "root:1234@tcp(127.0.0.1:3306)/yourdb",
+    TableName: "casbin_rule",
     // or reuse an existing connection:
-    // db: myDBConn,
+    // Db: myDBConn,
 }
 
 a := NewAdapterFromOptions(opts)
