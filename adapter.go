@@ -29,10 +29,10 @@ type Adapter struct {
 
 // AdapterOptions contains all possible configuration options.
 type AdapterOptions struct {
-	driverName string
-	dataSourceName string
-	tableName string
-	db *sqlx.DB
+	DriverName string
+	DataSourceName string
+	TableName string
+	Db *sqlx.DB
 }
 
 func finalizer(a *Adapter) {
@@ -151,14 +151,14 @@ func NewAdapterByDB(db *sqlx.DB) *Adapter {
 func NewAdapterFromOptions(opts *AdapterOptions) *Adapter {
 	a := &Adapter{tableName: "casbin_rule"}
 
-	if opts.tableName != "" {
-		a.tableName = opts.tableName
+	if opts.TableName != "" {
+		a.tableName = opts.TableName
 	}
 
-	if opts.db != nil {
-		a.db = opts.db
+	if opts.Db != nil {
+		a.db = opts.Db
 	} else {
-		db, err := sqlx.Connect(opts.driverName, opts.dataSourceName)
+		db, err := sqlx.Connect(opts.DriverName, opts.DataSourceName)
 		if err != nil {
 			panic(err)
 		}
