@@ -31,7 +31,7 @@ type AdapterOptions struct {
 	driverName string
 	dataSourceName string
 	tableName string
-	dbConn *sqlx.DB
+	db *sqlx.DB
 }
 
 func finalizer(a *Adapter) {
@@ -154,8 +154,8 @@ func NewAdapterFromOptions(opts *AdapterOptions) *Adapter {
 		a.tableName = opts.tableName
 	}
 
-	if opts.dbConn != nil {
-		a.db = opts.dbConn
+	if opts.db != nil {
+		a.db = opts.db
 	} else {
 		db, err := sqlx.Connect(opts.driverName, opts.dataSourceName)
 		if err != nil {
