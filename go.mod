@@ -1,4 +1,4 @@
-module github.com/memwey/casbin-sqlx-adapter
+module github.com/OFFLINE-GmbH/casbin-sqlx-adapter
 
 go 1.12
 
